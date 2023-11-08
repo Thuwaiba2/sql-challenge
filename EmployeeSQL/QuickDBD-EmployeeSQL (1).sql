@@ -5,7 +5,7 @@
 
 CREATE TABLE "Employees" (
     "emp_no" INT   NOT NULL,
-    "emp_title" VARCHAR,FK_Titles   NOT NULL,
+    "emp_title" FK_Titles,VARCHAR(300024)   NOT NULL,
     "birth_date" DATE   NOT NULL,
     "first_name" VARCHAR   NOT NULL,
     "last_name" VARCHAR   NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE "Employees" (
 );
 
 CREATE TABLE "Title" (
-    "title_id" VARCHAR   NOT NULL,
+    "title_id" VARCHAR(7)   NOT NULL,
     "title" VARCHAR   NOT NULL,
     CONSTRAINT "pk_Title" PRIMARY KEY (
         "title_id"
@@ -25,7 +25,7 @@ CREATE TABLE "Title" (
 );
 
 CREATE TABLE "Departments" (
-    "dept_no" VARCHAR   NOT NULL,
+    "dept_no" VARCHAR(9)   NOT NULL,
     "dept_name" VARCHAR   NOT NULL,
     CONSTRAINT "pk_Departments" PRIMARY KEY (
         "dept_no","dept_name"
@@ -33,17 +33,17 @@ CREATE TABLE "Departments" (
 );
 
 CREATE TABLE "Dept_emp" (
-    "emp_no" VARCHAR,PK_Employees   NOT NULL,
+    "emp_no" VARCHAR(331603),PK_Employees   NOT NULL,
     "dept_no" VARCHAR,PK_Departments   NOT NULL
 );
 
 CREATE TABLE "Dept_manager" (
-    "dept_no" VARCHAR,PK_Departments   NOT NULL,
+    "dept_no" VARCHAR(24),PK_Departments   NOT NULL,
     "emp_no" VARCHAR,PK_Employees   NOT NULL
 );
 
 CREATE TABLE "Salaries" (
-    "emp_no" VARCHAR,FK_Employees   NOT NULL,
+    "emp_no" VARCHAR(300024),FK_Employees   NOT NULL,
     "salary" VARCHAR,PK   NOT NULL
 );
 
