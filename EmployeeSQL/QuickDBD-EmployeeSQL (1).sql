@@ -33,18 +33,27 @@ CREATE TABLE "Departments" (
 );
 
 CREATE TABLE "Dept_emp" (
-    "emp_no" VARCHAR(331603),PK_Employees   NOT NULL,
-    "dept_no" VARCHAR,PK_Departments   NOT NULL
+    "emp_no" INT(331603),   NOT NULL,
+    "dept_no" VARCHAR,   NOT NULL,
+    CONSTRAINT "pk_Dept_emp" PRIMARY KEY (
+        "emp_no","dept_no"
+     )
 );
 
 CREATE TABLE "Dept_manager" (
-    "dept_no" VARCHAR(24),PK_Departments   NOT NULL,
-    "emp_no" VARCHAR,PK_Employees   NOT NULL
+    "dept_no" VARCHAR(24),   NOT NULL,
+    "emp_no" INT,   NOT NULL,
+    CONSTRAINT "pk_Dept_manager" PRIMARY KEY (
+        "dept_no","emp_no"
+     )
 );
 
 CREATE TABLE "Salaries" (
-    "emp_no" VARCHAR(300024),FK_Employees   NOT NULL,
-    "salary" VARCHAR,PK   NOT NULL
+    "emp_no" INT(300024),   NOT NULL,
+    "salary" VARCHAR,   NOT NULL,
+    CONSTRAINT "pk_Salaries" PRIMARY KEY (
+        "emp_no","salary"
+     )
 );
 
 ALTER TABLE "Employees" ADD CONSTRAINT "fk_Employees_emp_no" FOREIGN KEY("emp_no")
